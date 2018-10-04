@@ -14,7 +14,7 @@
 class WC_Gateway_Indonesian_Banks_Setup{
 
 	function __construct(){
-		add_action( 'plugins_loaded', 				array( $this, 'load' ) );
+		add_action( 'plugins_loaded', array( $this, 'load' ) );
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'register') );
 	}
 
@@ -38,9 +38,11 @@ class WC_Gateway_Indonesian_Banks_Setup{
 	 * @return array
 	 */
 	function register( $methods ){
-		$methods[] = 'WC_Gateway_Bank_BCA';
-		$methods[] = 'WC_Gateway_Bank_BNI';
-		$methods[] = 'WC_Gateway_Bank_Mandiri';
+		$methods = [
+			'WC_Gateway_Bank_BCA',
+			'WC_Gateway_Bank_BNI',
+			'WC_Gateway_Bank_Mandiri',
+		];
 
 		return $methods;
 	}
